@@ -1,0 +1,25 @@
+.container {
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: 0 3px 0 0 #00000033;
+}
+.container p,
+.container ul,
+.container li {
+  margin: 0;
+}
+.container ul {
+  display: flex;
+  flex-direction: row;
+}
+.container li {
+  margin-left: 10px;
+}
+.container a {
+  text-decoration: none;
+  color: inherit;
+}
