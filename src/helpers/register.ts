@@ -1,8 +1,9 @@
-type Respose = {
+type Response = {
   ok?: boolean;
   error?: unknown;
 };
-const register = async (newUser: User): Promise<Respose> => {
+
+const register = async (newUser: User): Promise<Response> => {
   try {
     const URL = "";
     const response = await fetch(URL, {
