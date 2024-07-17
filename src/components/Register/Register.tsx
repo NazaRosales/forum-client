@@ -1,10 +1,12 @@
 import { ChangeEvent, MouseEvent, useState } from "react";
 import styles from "./Register.module.css";
 import { register } from "../../helpers/register";
+import { useNavigate } from "react-router-dom";
 const Register = (): JSX.Element => {
+  const navigate = useNavigate();
   const initialState: User = {
     name: "",
-    lastname: "",
+    lastName: "",
     userName: "",
     email: "",
     password: "",
@@ -26,6 +28,7 @@ const Register = (): JSX.Element => {
     const result = await register(newUser);
     if (result.ok) {
       setNewUser(initialState);
+      navigate("/loggin");
     }
   };
   return (
@@ -40,13 +43,13 @@ const Register = (): JSX.Element => {
           value={newUser.name}
           onChange={handleInputChange}
         />
-        <label htmlFor="lastname">Apellido</label>
+        <label htmlFor="lastName">Apellido</label>
         <input
           type="text"
-          id="lastname"
-          name="lastname"
+          id="lastName"
+          name="lastName"
           autoComplete="off"
-          value={newUser.lastname}
+          value={newUser.lastName}
           onChange={handleInputChange}
         />
         <label htmlFor="userName">Nombre de usuario</label>
