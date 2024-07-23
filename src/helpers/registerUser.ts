@@ -1,10 +1,11 @@
 type Response = {
+  message?: string;
   ok?: boolean;
   error?: unknown;
 };
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-const register = async (newUser: User): Promise<Response> => {
+const registerUser = async (newUser: User): Promise<Response> => {
   try {
     const response = await fetch(`${BASE_URL}auth/register`, {
       method: "POST",
@@ -13,13 +14,7 @@ const register = async (newUser: User): Promise<Response> => {
       },
       body: JSON.stringify(newUser),
     });
-
-    if (!response.ok) {
-      console.log(response);
-      throw new Error("Network response was not ok");
-    }
     const data = await response.json();
-
     return data;
   } catch (error) {
     console.log(`Error: ${error}`);
@@ -27,4 +22,4 @@ const register = async (newUser: User): Promise<Response> => {
   }
 };
 
-export { register };
+export { registerUser };
